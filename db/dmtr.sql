@@ -1,6 +1,6 @@
+DROP TABLE transactions;
 DROP TABLE businesses;
 DROP TABLE categories;
-DROP TABLE transactions;
 
 CREATE TABLE businesses (
   id SERIAL8 PRIMARY KEY,
@@ -17,8 +17,8 @@ CREATE TABLE transactions (
   day DATE,
   amount DECIMAL(6,2),
   supplier VARCHAR(255),
-  business_id references businesses(id),
-  category_id references categories(id)
+  business_id int4 references businesses(id),
+  category_id int4 references categories(id)
 );
 
 
