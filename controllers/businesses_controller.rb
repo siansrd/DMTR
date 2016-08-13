@@ -1,9 +1,12 @@
 require_relative('../models/business')
+require('pry-byebug')
 
 
 get ('/businesses') do
+  @businesses = Business.all 
   erb(:'businesses/index')
 end
+
 
 
 get ('/businesses/new') do

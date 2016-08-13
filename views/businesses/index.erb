@@ -1,1 +1,5 @@
-<h1>Success</h1>
+<h1>All Businesses</h1>
+
+<% @businesses.map do |business| %>
+  <%= business.name %>
+<% end %>
