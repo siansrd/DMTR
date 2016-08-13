@@ -1,11 +1,17 @@
 require_relative('../models/business')
 
-get ('/new') do
+
+get ('/businesses') do
+  erb(:'businesses/index')
+end
+
+
+get ('/businesses/new') do
   erb(:'businesses/new')
 end
 
-post ('/index') do
+post ('/businesses') do
  business = Business.new(params)
  business.save
- redirect to( '/index' )
+ redirect (to('/businesses'))
 end
