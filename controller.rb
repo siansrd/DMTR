@@ -6,5 +6,5 @@ require_relative('./controllers/categories_controller')
 require_relative('./controllers/transactions_controller')
 
 get ('/') do
-  return "Hello World!"
+  erb (:home)
 end
