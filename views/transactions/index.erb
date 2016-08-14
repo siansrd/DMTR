@@ -1,0 +1,5 @@
+<h1>All Transactions</h1>
+
+<% @transactions.each do |transaction| %>
+  <p><%= transaction.day %> | <%= transaction.business_id %> | <%= transaction.supplier %> | <%= transaction.category_id %> | <%= transaction.amount %></p>
+<% end %>

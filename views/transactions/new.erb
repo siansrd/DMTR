@@ -1,0 +1,30 @@
+<!-- We have @businesses and @categories available -->
+
+<form action="/transactions" method="post">
+  <!--  Date -->
+  <input type="date" name="day" value="Date">
+  
+  <!--  Add select for Businesses -->
+  <select name="business_id">
+    <% @businesses.each do |business| %>
+      <option value="<%= business.id %>"><%= business.name %></option>
+    <% end %>
+  </select>
+
+  <!--  Add select for Categories -->
+  <select name="category_id">
+    <% @categories.each do |category| %>
+      <option value="<%= category.id %>"><%= category.label %></option>
+    <% end %>
+  </select>
+
+  <!--  Supplier -->
+  <input type="text" name="supplier" value="Supplier">
+
+  <!--  Amount -->
+  <input type="text" name="amount" value="£">
+
+  <input type="submit" value="Add">
+</form>
+
+
