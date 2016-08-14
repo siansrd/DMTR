@@ -7,14 +7,19 @@ get ('/businesses') do
   erb(:'businesses/index')
 end
 
-
-
 get ('/businesses/new') do
   erb(:'businesses/new')
 end
 
 post ('/businesses') do
- business = Business.new(params)
+ business = Business.new( params )
  business.save
  redirect (to('/businesses'))
 end
+
+post ('/businesses/:id/delete') do
+ Business.destroy( params[:id] )
+ redirect( to('/businesses'))
+end
+
+

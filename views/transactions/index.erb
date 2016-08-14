@@ -2,4 +2,7 @@
 
 <% @transactions.each do |transaction| %>
   <p><%= transaction.day %> | <%= transaction.business_id %> | <%= transaction.supplier %> | <%= transaction.category_id %> | <%= transaction.amount %></p>
+  <form action='/transactions/<%= transaction.id %>/delete' method='post'>
+    <input type="submit" value="Delete">
+  </form>
 <% end %>

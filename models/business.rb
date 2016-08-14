@@ -18,6 +18,12 @@ class Business
     @id = business['id']
   end
 
+  def self.destroy(id)
+    sql = "DELETE FROM businesses WHERE id = #{id};"
+    SqlRunner.run( sql )
+  end
+
+
   def self.all
     sql = "SELECT * FROM businesses"
     return Business.map_businesses( sql )

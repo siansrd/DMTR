@@ -22,6 +22,11 @@ attr_reader :id, :day, :amount, :supplier, :business_id, :category_id
     @id = transaction['id']
   end
 
+  def self.destroy(id)
+    sql = "DELETE FROM transactions WHERE id = #{id};"
+    SqlRunner.run( sql )
+  end
+
   def self.all
     sql = "SELECT * FROM transactions"
     return Transaction.map_trans(sql)
@@ -33,5 +38,6 @@ attr_reader :id, :day, :amount, :supplier, :business_id, :category_id
       Transaction.new(transaction)
     }
   end
+
 
 end

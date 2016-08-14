@@ -2,4 +2,7 @@
 
 <% @businesses.map do |business| %>
   <%= business.name %>
+  <form action="/businesses/<%= business.id %>/delete" method="post">
+    <input type="submit" Value="Delete">
+  </form>
 <% end %>
