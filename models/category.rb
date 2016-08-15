@@ -29,5 +29,13 @@ class Category
     return cat_objs
   end
 
+  def transactions()
+    sql = "SELECT * FROM transactions
+          WHERE category_id = #{id}"
+    transactions = SqlRunner.run( sql )
+    transactions.map { |transaction| Transaction.new(transaction) }
+  end
+
+
 
 end

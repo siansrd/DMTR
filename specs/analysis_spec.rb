@@ -33,10 +33,6 @@ class TestAnalysis < Minitest::Test
     assert_equal(260.65, @analysis.total_transactions)
   end
 
-  # def test_display_by_category
-
-  # end
-
   # def test_total_one_category
 
   # end
