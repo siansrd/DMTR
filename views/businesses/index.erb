@@ -1,8 +1,17 @@
-<h1>All Businesses</h1>
+<!-- Business New Form -->
+<form action="/businesses" method="post">
+  <input type="text" name="name">
+  <input type="submit" value="Add Business">
+</form>
+
+<h2>All Businesses</h2>
 
 <% @businesses.map do |business| %>
-  <%= business.name %>
-  <form action="/businesses/<%= business.id %>/delete" method="post">
-    <input type="submit" Value="Delete">
-  </form>
-<% end %>
+  <div class="container">
+    <div class="item"><%= business.name %></div>
+    <div class="item"><form action="/businesses/<%= business.id %>/delete" method="post">
+      <input type="submit" Value="Delete">
+    </form></div>
+  </div>
+  <% end %>
+<p>&larr;  <a href="/transactions">Transactions</a></p>
