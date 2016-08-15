@@ -25,13 +25,17 @@ class TestAnalysis < Minitest::Test
     assert_equal(['Web Design', 'Teaching'], @analysis.businesses_names)
   end
 
+  # def test_transactions
+  #   assert_equal('All the transactions', @analysis.transactions)
+  # end
+
   def test_businesses_count
     assert_equal(2, @analysis.business_count)
   end
 
-  def test_total_transactions
-    assert_equal(260.65, @analysis.total_transactions)
-  end
+  # def test_total_transactions
+  #   assert_equal(260.65, @analysis.total_transactions)
+  # end
 
   # def test_total_one_category
 

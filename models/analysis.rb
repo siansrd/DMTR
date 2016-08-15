@@ -9,10 +9,10 @@ class Analysis
 
   attr_reader :categories, :businesses, :transactions
 
-  def initialize(options)
-    @categories     = options['categories']
-    @businesses     = options['businesses']
-    @transactions   = options['transactions']
+  def initialize()
+    @categories     = Category.all
+    @businesses     = Business.all
+    @transactions   = Transaction.all
   end
 
   def businesses_names()
@@ -27,16 +27,17 @@ class Analysis
     @businesses.count
   end
 
+# Total all transaction amounts
   def total_transactions()
     total = 0
-    @transactions.each do |business| 
-      total += business.amount
+    @transactions.each do |transaction| 
+      total += transaction.amount
     end
     string = "%.2f" % total
     return total_f = string.to_f
   end
 
-  
+
 
 
 end

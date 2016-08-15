@@ -1,9 +1,11 @@
 require_relative('../models/transaction')
 require_relative('../models/business')
 require_relative('../models/category')
+require_relative('../models/analysis')
 require('pry-byebug')
 
 get ('/transactions') do
+  @analysis = Analysis.new
   @transactions = Transaction.all
   erb(:'transactions/index')
 end
