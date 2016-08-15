@@ -1,7 +1,7 @@
 <h1>All Transactions</h1>
 
 <% @transactions.each do |transaction| %>
-  <p><%= transaction.day %> | <%= transaction.business_id %> | <%= transaction.supplier %> | <%= transaction.category_id %> | <%= transaction.amount %></p>
+  <p><%= transaction.day %> | <%= transaction.business['name'] %> | <%= transaction.supplier %> | <%= transaction.category['label'] %> | <%= transaction.amount %></p>
   <form action='/transactions/<%= transaction.id %>/delete' method='post'>
     <input type="submit" value="Delete">
   </form>

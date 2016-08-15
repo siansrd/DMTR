@@ -1,4 +1,5 @@
 require('pg')
+require_relative('./category')
 
 class Transaction
 
@@ -21,6 +22,29 @@ attr_reader :id, :day, :amount, :supplier, :business_id, :category_id
     transaction = SqlRunner.run( sql ).first
     @id = transaction['id']
   end
+
+
+  def category
+    sql = "SELECT categories.* FROM categories
+          INNER JOIN transactions
+          ON categories.id = transactions.category_id
+          WHERE transactions.id = #{@id};"
+    category_hash = SqlRunner.run( sql ).first
+    return category_hash
+  end
+
+
+  def business
+    sql = "SELECT businesses.* FROM businesses
+          INNER JOIN transactions
+          ON businesses.id = transactions.business_id
+          WHERE transactions.id = #{@id};"
+    business_hash = SqlRunner.run( sql ).first
+    return business_hash
+
+  end
+
+
 
   def self.destroy(id)
     sql = "DELETE FROM transactions WHERE id = #{id};"
