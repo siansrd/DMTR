@@ -27,5 +27,14 @@ class Analysis
     @businesses.count
   end
 
+  def total_transactions()
+    total = 0
+    @transactions.each do |business| 
+      total += business.amount
+    end
+    string = "%.2f" % total
+    return total_f = string.to_f
+  end
+
 
 end
