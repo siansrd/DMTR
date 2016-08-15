@@ -1,0 +1,65 @@
+
+
+body {
+  background-color: #FDB82C;
+  font-family: Verdana, sans-serif;
+  width: 80%;
+  margin: 0 auto;
+  padding-top: 30px;
+}
+
+h2 {
+  font-weight: normal;
+}
+
+
+input {
+  /*  -webkit-appearance: textfield;*/
+    background-color: #FDB82C;
+    padding: 2px 5px;
+    border-width: 2px;
+    border-style: inset;
+    border-color: #000;
+}
+
+
+input, textarea, keygen, select, button {
+    /*color: xxx; Text Color*/
+    /*padding: 2px 5px;*/
+    margin: 1em 0.5em;
+    font: 14px BlinkMacSystemFont;
+}
+
+/*Dropdowns*/
+
+select, input[type="color" i][list] {
+    background-color: #FDB82C;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #000;
+}
+
+keygen, select {
+    border-radius: 20px;
+}
+
+input[type="date" i] {
+  padding: 0 5px;
+}
+
+.container {
+  width: 1200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start
+}
+
+
+.item {
+margin: 5px 0;
+ width: 190px;
+}
+
+.item input {   
+    margin: 0;
+}

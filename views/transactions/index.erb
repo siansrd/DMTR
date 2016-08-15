@@ -22,7 +22,7 @@
   <input type="submit" value="Add">
 </form>
 
-<h1>Transactions</h1>
+<h2>Transactions</h2>
 
 <!-- Filter by Category -->
 <form action="/transactions" method="get">
@@ -34,14 +34,22 @@
   <input type="submit" value="Filter">
 </form>
 
-
+<!-- Filter by Business -->
+<!-- Not working -->
 
   <% @transactions.each do |transaction| %>
-    <p><%= transaction.day %> | <%= transaction.business['name'] %> | <%= transaction.supplier %> | <%= transaction.category['label'] %> | £<%= transaction.price; %>
-    <form action='/transactions/<%= transaction.id %>/delete' method='post'>
-      <input type="submit" value="Delete">
-    </form>
-  <% end %></p>
+    <div class="container">
+      <div class="item"><%= transaction.day %></div>
+      <div class="item"><%= transaction.business['name'] %></div>
+      <div class="item"><%= transaction.supplier %></div>
+      <div class="item"><%= transaction.category['label'] %></div>
+      <div class="item">£<%= transaction.price; %></div>
+      <div class="item"><form action='/transactions/<%= transaction.id %>/delete' method='post'>
+        <input type="submit" value="Delete">
+      </form></div>
+    </div> 
+  <% end %>
+
 
   <p>Total £<%= @analysis.total_transactions %></p>
 
