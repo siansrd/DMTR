@@ -14,6 +14,10 @@ attr_reader :id, :day, :amount, :supplier, :business_id, :category_id
     @category_id    = options['category_id'].to_i
   end
 
+  def price 
+    return "%.2f" % @amount 
+  end
+
   def save()
     sql = "INSERT INTO transactions
           (day, amount, supplier, business_id, category_id) VALUES 
@@ -41,10 +45,7 @@ attr_reader :id, :day, :amount, :supplier, :business_id, :category_id
           WHERE transactions.id = #{@id};"
     business_hash = SqlRunner.run( sql ).first
     return business_hash
-
   end
-
-
 
   def self.destroy(id)
     sql = "DELETE FROM transactions WHERE id = #{id};"

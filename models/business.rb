@@ -23,7 +23,6 @@ class Business
     SqlRunner.run( sql )
   end
 
-
   def self.all
     sql = "SELECT * FROM businesses"
     return Business.map_businesses( sql )
