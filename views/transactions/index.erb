@@ -1,6 +1,30 @@
-<h1>All Transactions</h1>
+<!-- Business New Form -->
+<form action="/businesses" method="post">
+  <input type="text" name="name">
+  <input type="submit" value="Add Business">
+</form>
 
-<label>Filter by Category:</label>
+<!-- Transaction New Form -->
+<form action="/transactions" method="post">
+  <input type="date" name="day" value="Date">
+  <select name="business_id">
+    <% @businesses.each do |business| %>
+      <option value="<%= business.id %>"><%= business.name %></option>
+    <% end %>
+  </select>
+  <select name="category_id">
+    <% @categories.each do |category| %>
+      <option value="<%= category.id %>"><%= category.label %></option>
+    <% end %>
+  </select>
+  <input type="text" name="supplier" value="Supplier">
+  <input type="text" name="amount" value="£">
+  <input type="submit" value="Add">
+</form>
+
+<h1>Transactions</h1>
+
+<!-- Filter by Category -->
 <form action="/transactions" method="get">
   <select name="category_id">
     <% @categories.each do |category| %>
@@ -13,11 +37,11 @@
 
 
   <% @transactions.each do |transaction| %>
-    <p><%= transaction.day %> | <%= transaction.business['name'] %> | <%= transaction.supplier %> | <%= transaction.category['label'] %> | £<%= transaction.price; %></p>
+    <p><%= transaction.day %> | <%= transaction.business['name'] %> | <%= transaction.supplier %> | <%= transaction.category['label'] %> | £<%= transaction.price; %>
     <form action='/transactions/<%= transaction.id %>/delete' method='post'>
       <input type="submit" value="Delete">
     </form>
-  <% end %>
+  <% end %></p>
 
   <p>Total £<%= @analysis.total_transactions %></p>
 

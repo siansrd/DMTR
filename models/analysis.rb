@@ -37,10 +37,4 @@ class Analysis
     return total_f = string.to_f
   end
 
-
-
-  end
-
-
-
 end

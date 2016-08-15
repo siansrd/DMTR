@@ -5,6 +5,7 @@ require_relative('../models/analysis')
 require('pry-byebug')
 
 get ('/transactions') do
+  @businesses = Business.all
   @categories = Category.all
   @analysis = Analysis.new
   @transactions = Transaction.all
