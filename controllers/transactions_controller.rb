@@ -5,8 +5,15 @@ require_relative('../models/analysis')
 require('pry-byebug')
 
 get ('/transactions') do
+  @categories = Category.all
   @analysis = Analysis.new
   @transactions = Transaction.all
+  if params[:category_id]
+    #filter our transactions to only those of the category id
+    @transactions = @transactions.select do |transaction|
+      transaction.category_id == params[:category_id].to_i
+    end
+  end
   erb(:'transactions/index')
 end
 
@@ -25,5 +32,11 @@ end
 post ('/transactions/:id/delete') do
   Transaction.destroy( params[:id] )
   redirect( to('/transactions'))
+end
+
+# This comes from the analysis model
+get ('/transactions/:category_id') do
+  @transaction = Transaction.all
+  erb(:'transactions/category')
 end
 

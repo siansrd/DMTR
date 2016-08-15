@@ -27,6 +27,12 @@ attr_reader :id, :day, :amount, :supplier, :business_id, :category_id
     @id = transaction['id']
   end
 
+  # def category
+  #   sql = "SELECT * FROM categories WHERE id = #{@category_id};"
+  #   category_hash = SqlRunner.run( sql ).first
+  #   return category_hash
+  # end
+
 
   def category
     sql = "SELECT categories.* FROM categories

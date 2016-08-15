@@ -1,10 +1,24 @@
 <h1>All Transactions</h1>
 
-<% @transactions.each do |transaction| %>
-  <p><%= transaction.day %> | <%= transaction.business['name'] %> | <%= transaction.supplier %> | <%= transaction.category['label'] %> | £<%= transaction.price; %></p>
-  <form action='/transactions/<%= transaction.id %>/delete' method='post'>
-    <input type="submit" value="Delete">
-  </form>
-<% end %>
+<label>Filter by Category:</label>
+<form action="/transactions" method="get">
+  <select name="category_id">
+    <% @categories.each do |category| %>
+      <option value="<%= category.id %>"><%= category.label %></option>
+    <% end %>
+    
+  <input type="submit" value="Filter">
+</form>
 
-<p>Total £<%= @analysis.total_transactions %></p>
+
+
+  <% @transactions.each do |transaction| %>
+    <p><%= transaction.day %> | <%= transaction.business['name'] %> | <%= transaction.supplier %> | <%= transaction.category['label'] %> | £<%= transaction.price; %></p>
+    <form action='/transactions/<%= transaction.id %>/delete' method='post'>
+      <input type="submit" value="Delete">
+    </form>
+  <% end %>
+
+  <p>Total £<%= @analysis.total_transactions %></p>
+
+
