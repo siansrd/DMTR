@@ -43,9 +43,25 @@ post ('/transactions/:id/delete') do
 end
 
 # This comes from the analysis model
-get ('/transactions/:category_id') do
-  @transaction = Transaction.all
-  erb(:'transactions/category')
+# get ('/transactions/:category_id') do
+#   @transaction = Transaction.all
+#   erb(:'transactions/category')
+# end
+
+# CSV file download
+get ('/transactions/download') do
+  data = Transaction.all_not_mapped
+  binding.pry
+  nil
+
+      # content_type 'application/csv'
+      # attachment "myfilename.csv"
+      # data.each{|k, v|
+      #    p v
+      # }
+
+
+#   erb(:transactions)
 end
 
 
