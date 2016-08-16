@@ -16,9 +16,11 @@ attr_reader :id, :day, :amount, :supplier, :business_id, :category_id
     @category_id    = options['category_id'].to_i
   end
 
+  # Converts @amount to have 2 decimal places
   def price 
     return "%.2f" % @amount 
   end
+
 
   def save()
     sql = "INSERT INTO transactions
@@ -29,13 +31,6 @@ attr_reader :id, :day, :amount, :supplier, :business_id, :category_id
     @id = transaction['id']
   end
 
-  # def category
-  #   sql = "SELECT * FROM categories WHERE id = #{@category_id};"
-  #   category_hash = SqlRunner.run( sql ).first
-  #   return category_hash
-  # end
-
-
   def category
     sql = "SELECT categories.* FROM categories
           INNER JOIN transactions
@@ -44,6 +39,13 @@ attr_reader :id, :day, :amount, :supplier, :business_id, :category_id
     category_hash = SqlRunner.run( sql ).first
     return category_hash
   end
+
+  # Didn't need an inner join for save, category and business method. This also works.
+  # def category
+  #   sql = "SELECT * FROM categories WHERE id = #{@category_id};"
+  #   category_hash = SqlRunner.run( sql ).first
+  #   return category_hash
+  # end
 
 
   def business
