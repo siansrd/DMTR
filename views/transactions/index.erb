@@ -57,7 +57,7 @@
       <div class="item"><%= transaction.category['label'] %></div>
       <div class="item-small">£<%= transaction.price; %></div>
       <div class="item-small"><form action='/transactions/<%= transaction.id %>/delete' method='post'>
-        <input type="submit" value="Delete">
+        <input type="submit" value="Delete" style="float: right;">
       </form></div>
     </div> 
   <% end %>
