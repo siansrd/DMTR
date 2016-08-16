@@ -126,8 +126,37 @@ margin: 0 5px;
 }*/
 
 p.add-link {
+  font-size: 12px;
   -webkit-margin-before: 3px;
   -webkit-margin-after: 0;
   -webkit-margin-start: 4px;
   -webkit-margin-end: 0px;
 }
+
+p.total {
+  float: right;
+  margin-right: 157px;
+}
+
+
+.all-trans {
+  height: 20px;
+  padding-top: 18px;
+}
+
+
+.filter-wrapper {
+  width: 100%;
+  height: 30px;
+}
+
+.category-filter {
+  float: left;
+  margin-right: 20px;
+}
+
+.business-filter {
+  float: left;
+  margin-right: 20px;
+}
+

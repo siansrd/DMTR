@@ -1,58 +1,66 @@
 <!-- Transaction New Form -->
   <form action="/transactions" method="post">
-  <div class="container-form">
-    <div class="item">
-      <input type="date" name="day" value="Date">
-    </div>
-    <div class="item-form">
-      <select name="business_id">
-        <% @businesses.each do |business| %>
-          <option value="<%= business.id %>"><%= business.name %></option>
-        <% end %>
-      </select>
-      <p class="add-link"><a href="/businesses">Add New Business</a>  &rarr;</p>
-    </div>
-    <div class="item-form">
-      <select name="category_id">
-        <% @categories.each do |category| %>
-          <option value="<%= category.id %>"><%= category.label %></option>
-        <% end %>
-      </select>
-    </div>
-    <div class="item-form">
-      <input type="text" name="supplier" value="Supplier">
-    </div>
-    <div class="item">
-      £<input type="text" name="amount">
-    </div>
-    <div class="item-small">
-      <input type="submit" style="float: right;" value="Add">
-    </div>
-</div>
+    <div class="container-form">
+      <div class="item">
+        <input type="date" name="day" value="Date">
+      </div>
+      <div class="item-form">
+        <select name="business_id">
+          <% @businesses.each do |business| %>
+            <option value="<%= business.id %>"><%= business.name %></option>
+          <% end %>
+        </select>
+        <p class="add-link"><a href="/businesses">Add New Business</a>  &rarr;</p>
+      </div>
+      <div class="item-form">
+        <select name="category_id">
+          <% @categories.each do |category| %>
+            <option value="<%= category.id %>"><%= category.label %></option>
+          <% end %>
+        </select>
+      </div>
+      <div class="item-form">
+        <input type="text" name="supplier" value="Supplier">
+      </div>
+      <div class="item">
+        £<input type="text" name="amount">
+      </div>
+      <div class="item-small">
+        <input type="submit" value="Add">
+      </div>
+  </div>
 </form>
 
 
 <h2>Transactions</h2>
 
-<!-- Filter by Category -->
-<form action="/transactions" method="get">
-  <select name="category_id">
-    <% @categories.each do |category| %>
-      <option value="<%= category.id %>"><%= category.label %></option>
-    <% end %>
-    
-  <input type="submit" value="Filter">
-</form>
+<div class="filter-wrapper">
+  <div class="category-filter">
+  <!-- Filter by Category -->
+    <form action="/transactions" method="get">
+      <select name="category_id">
+        <% @categories.each do |category| %>
+          <option value="<%= category.id %>"><%= category.label %></option>
+        <% end %>
+        
+      <input type="submit" value="Filter">
+    </form>
+  </div>
 
-<!-- Filter by Business -->
-<form action="/transactions" method="get">
-  <select name="business_id">
-    <% @businesses.each do |business| %>
-      <option value="<%= business.id %>"><%= business.name %></option>
-    <% end %>
+  <!-- Filter by Business -->
+  <div class="business-filter">
+    <form action="/transactions" method="get">
+      <select name="business_id">
+        <% @businesses.each do |business| %>
+          <option value="<%= business.id %>"><%= business.name %></option>
+        <% end %>
 
-  <input type="submit" value="Filter">
-</form>
+      <input type="submit" value="Filter">
+    </form>
+  </div>
+
+  <div class="all-trans"><a href="/transactions">&larr; All Transactions</a></div>
+</div>
 
   <div class="container-header">
     <div class="item">Date</div>
@@ -79,6 +87,6 @@
 
 
 
-  <p>Total £<%= @analysis.total_transactions(@transactions) %></p>
+  <p class="total">Total £<%= @analysis.total_transactions(@transactions) %></p>
 
 
