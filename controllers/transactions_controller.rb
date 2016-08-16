@@ -4,6 +4,7 @@ require_relative('../models/category')
 require_relative('../models/analysis')
 require('pry-byebug')
 
+
 get ('/transactions') do
   @businesses = Business.all
   @categories = Category.all
@@ -46,4 +47,5 @@ get ('/transactions/:category_id') do
   @transaction = Transaction.all
   erb(:'transactions/category')
 end
+
 
