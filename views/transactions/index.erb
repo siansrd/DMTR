@@ -12,9 +12,10 @@
     <% end %>
   </select>
   <input type="text" name="supplier" value="Supplier">
-  <input type="text" name="amount" value="£">
+  £ <input type="text" name="amount">
   <input type="submit" value="Add">
 </form>
+
 <p><a href="/businesses">Add New Business</a>  &rarr;</p>
 
 <h2>Transactions</h2>
@@ -30,7 +31,14 @@
 </form>
 
 <!-- Filter by Business -->
-<!-- Not working -->
+<form action="/transactions" method="get">
+  <select name="business_id">
+    <% @businesses.each do |business| %>
+      <option value="<%= business.id %>"><%= business.name %></option>
+    <% end %>
+
+  <input type="submit" value="Filter">
+</form>
 
 <!-- Display transactions -->
   <% @transactions.each do |transaction| %>

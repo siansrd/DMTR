@@ -15,12 +15,12 @@ get ('/transactions') do
       transaction.category_id == params[:category_id].to_i
     end
   end
-  # if params[:business_id]
-  #   # filter @transactions to only those with a business id
-  #   @transactions = @transections.select do |transaction|
-  #     transaction.business_id == param[:business_id].to_i
-  #   end
-  # end
+  if params[:business_id]
+    # filter @transactions to only those with a business id
+    @transactions = @transactions.select do |transaction|
+      transaction.business_id == params[:business_id].to_i
+    end
+  end
   erb(:'transactions/index')
 end
 
