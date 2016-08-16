@@ -35,9 +35,10 @@ input:focus {
     outline:none;
 }
 
-button {
-  background-color: #FDB82C;
+input[type="submit" i]:hover {
+  background-color: #d9d9d9;
 }
+
 
 
 input, textarea, keygen, select, button {
@@ -46,6 +47,8 @@ input, textarea, keygen, select, button {
     margin: 1em 0.5em 1em 0;
     font: 14px BlinkMacSystemFont;
 }
+
+
 
 /*Dropdowns*/
 

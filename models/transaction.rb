@@ -78,14 +78,14 @@ attr_reader :id, :day, :amount, :supplier, :business_id, :category_id
   end
 
   # Export database into a csv file
-  # def self.csv
-  #   CSV.generate do |csv|
-  #     csv << ["ID","DATE","AMOUNT", "SUPPLIER", "BUSINESS ID", "CATEGORY ID"]
-  #     sql = "SELECT * FROM transactions;"
-  #     transactions_hashes = SqlRunner.run(sql)
-  #     transactions_hashes.each { |row| csv << row }
-  #   end
-  # end
+  def self.csv
+    CSV.generate do |csv|
+      csv << ["ID","DATE","AMOUNT", "SUPPLIER", "BUSINESS ID", "CATEGORY ID"]
+      sql = "SELECT * FROM transactions;"
+      transactions_hashes = SqlRunner.run(sql)
+      transactions_hashes.each { |row| csv << row }
+    end
+  end
 
 end
 

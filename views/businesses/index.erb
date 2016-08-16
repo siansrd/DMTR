@@ -9,7 +9,7 @@
 <% @businesses.map do |business| %>
   <div class="container">
     <div class="item"><%= business.name %></div>
-    <div class="item"><form onsubmit="return confirm('Warning: Deleting a business will delete any transactions that it is associated with it.')" action="/businesses/<%= business.id %>/delete" method="post">
+    <div class="item"><form onsubmit="return confirm('Warning: Deleting a business will delete any transactions that it is associated with.')" action="/businesses/<%= business.id %>/delete" method="post">
       <input type="submit" Value="Delete">
     </form></div>
   </div>
