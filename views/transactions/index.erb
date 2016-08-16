@@ -32,6 +32,7 @@
 <!-- Filter by Business -->
 <!-- Not working -->
 
+<!-- Display transactions -->
   <% @transactions.each do |transaction| %>
     <div class="container">
       <div class="item"><%= transaction.day %></div>
@@ -46,6 +47,8 @@
   <% end %>
 
 
-  <p>Total £<%= @analysis.total_transactions %></p>
+
+
+  <p>Total £<%= @analysis.total_transactions(@transactions) %></p>
 
 

@@ -24,8 +24,7 @@ class TestAnalysis < Minitest::Test
   end
 
   
-
-  # def test_total_one_category
+  # def test_transactions_selection(transactions_array)
 
   # end
 

@@ -28,13 +28,14 @@ class Analysis
   end
 
 # Total all transaction amounts
-  def total_transactions()
+  def total_transactions(transactions_array)
     total = 0
-    @transactions.each do |transaction| 
+    transactions_array.each do |transaction| 
       total += transaction.amount
     end
     string = "%.2f" % total
     return total_f = string.to_f
   end
+
 
 end
