@@ -17,7 +17,7 @@ CREATE TABLE transactions (
   day DATE,
   amount DECIMAL(6,2),
   supplier VARCHAR(255),
-  business_id int4 references businesses(id),
+  business_id int4 references businesses(id) ON DELETE CASCADE,
   category_id int4 references categories(id)
 );
 

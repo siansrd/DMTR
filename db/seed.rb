@@ -20,6 +20,3 @@ cat5.save
 cat6.save
 cat7.save
 cat8.save
-
-binding.pry
-nil
