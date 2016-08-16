@@ -60,7 +60,10 @@ attr_reader :id, :day, :amount, :supplier, :business_id, :category_id
 
   def self.all
     sql = "SELECT * FROM transactions"
-    return Transaction.map_trans(sql)
+    unsorted = Transaction.map_trans(sql)
+    # unsorted is an array of objects
+    sorted = unsorted.sort_by { |transaction| transaction.day }
+    return sorted
   end
 
   def self.map_trans(sql)
