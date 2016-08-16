@@ -40,6 +40,14 @@
   <input type="submit" value="Filter">
 </form>
 
+  <div class="container-header">
+    <div class="item">Date</div>
+    <div class="item">Business</div>
+    <div class="item">Supplier</div>
+    <div class="item">Category</div>
+    <div class="item-small">Price</div>
+    <div class="item-small"> </div>
+  </div> 
 <!-- Display transactions -->
   <% @transactions.each do |transaction| %>
     <div class="container">
@@ -47,8 +55,8 @@
       <div class="item"><%= transaction.business['name'] %></div>
       <div class="item"><%= transaction.supplier %></div>
       <div class="item"><%= transaction.category['label'] %></div>
-      <div class="item">£<%= transaction.price; %></div>
-      <div class="item"><form action='/transactions/<%= transaction.id %>/delete' method='post'>
+      <div class="item-small">£<%= transaction.price; %></div>
+      <div class="item-small"><form action='/transactions/<%= transaction.id %>/delete' method='post'>
         <input type="submit" value="Delete">
       </form></div>
     </div> 
