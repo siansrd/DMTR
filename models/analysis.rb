@@ -34,8 +34,7 @@ class Analysis
     transactions_array.each do |transaction| 
       total += transaction.amount
     end
-    string = "%.2f" % total
-    return total_f = string.to_f
+    return "%.2f" % total
   end
 
 
