@@ -6,10 +6,11 @@
 <div class="body-content">
   <h2>Transactions</h2>
 
+  <!-- Filter form -->
   <div class="filter-wrapper">
+  
+  <!-- Filter by Category --> 
     <div class="category-filter">
-
-    <!-- Filter by Category -->
       <form action="/transactions" method="get">
         <select name="category_id">
           <% @categories.each do |category| %>
@@ -26,12 +27,14 @@
           <% end %>
         </select>
 
+    <!-- Filter Button -->
         <input type="submit" value="Filter">
       </form>
     </div>
 
     <div class="all-trans">&larr;<a href="/transactions">All Transactions</a></div>
   </div>
+
 
   <!-- Display transactions -->
   <!--   Headings -->
@@ -47,7 +50,6 @@
   <!-- Content -->
     <% @transactions.each do |transaction| %>
       <div class="container">
-
         <div class="item"><%= transaction.day %></div>
         <div class="item"><%= transaction.business['name'] %></div>
         <div class="item"><%= transaction.supplier %></div>
@@ -56,13 +58,11 @@
         <div class="item-small"><form action='/transactions/<%= transaction.id %>/delete' method='post'>
           <input type="submit" value="Delete" style="float: right;">
         </form></div>
-
       </div> 
     <% end %>
 
   <!-- Total Transactions -->
     <p class="total">Total £<%= @analysis.total_transactions(@transactions) %></p>
-
     <div class=bottom-buttons>
       <div class="button-1">
         <form action= "/transactions/download" method="get">
