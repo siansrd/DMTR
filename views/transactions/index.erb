@@ -1,68 +1,71 @@
 <!-- Transaction New Form -->
+<header> 
   <%= erb :'transactions/new' %>
+</header>
 
+<div class="body-content">
+  <h2>Transactions</h2>
 
-<h2>Transactions</h2>
+  <div class="filter-wrapper">
+    <div class="category-filter">
+    <!-- Filter by Category -->
+      <form action="/transactions" method="get">
+        <select name="category_id">
+          <% @categories.each do |category| %>
+            <option value="<%= category.id %>"><%= category.label %></option>
+          <% end %>
+          
+        <input type="submit" value="Filter">
+      </form>
+    </div>
 
-<div class="filter-wrapper">
-  <div class="category-filter">
-  <!-- Filter by Category -->
-    <form action="/transactions" method="get">
-      <select name="category_id">
-        <% @categories.each do |category| %>
-          <option value="<%= category.id %>"><%= category.label %></option>
-        <% end %>
-        
-      <input type="submit" value="Filter">
-    </form>
+    <!-- Filter by Business -->
+    <div class="business-filter">
+      <form action="/transactions" method="get">
+        <select name="business_id">
+          <% @businesses.each do |business| %>
+            <option value="<%= business.id %>"><%= business.name %></option>
+          <% end %>
+
+        <input type="submit" value="Filter">
+      </form>
+    </div>
+
+    <div class="all-trans">&larr;<a href="/transactions">All Transactions</a></div>
   </div>
 
-  <!-- Filter by Business -->
-  <div class="business-filter">
-    <form action="/transactions" method="get">
-      <select name="business_id">
-        <% @businesses.each do |business| %>
-          <option value="<%= business.id %>"><%= business.name %></option>
-        <% end %>
-
-      <input type="submit" value="Filter">
-    </form>
-  </div>
-
-  <div class="all-trans">&larr;<a href="/transactions">All Transactions</a></div>
-</div>
-
-  <div class="container-header">
-    <div class="item">Date</div>
-    <div class="item">Business</div>
-    <div class="item">Supplier</div>
-    <div class="item">Category</div>
-    <div class="item-small">Price</div>
-    <div class="item-small"> </div>
-  </div> 
-<!-- Display transactions -->
-
-  <% @transactions.each do |transaction| %>
-    <div class="container">
-
-      <div class="item"><%= transaction.day %></div>
-      <div class="item"><%= transaction.business['name'] %></div>
-      <div class="item"><%= transaction.supplier %></div>
-      <div class="item"><%= transaction.category['label'] %></div>
-      <div class="item-small">£<%= transaction.price; %></div>
-      <div class="item-small"><form action='/transactions/<%= transaction.id %>/delete' method='post'>
-        <input type="submit" value="Delete" style="float: right;">
-      </form></div>
-
+    <div class="container-header">
+      <div class="item">Date</div>
+      <div class="item">Business</div>
+      <div class="item">Supplier</div>
+      <div class="item">Category</div>
+      <div class="item-small">Price</div>
+      <div class="item-small"> </div>
     </div> 
-  <% end %>
+  <!-- Display transactions -->
+
+    <% @transactions.each do |transaction| %>
+      <div class="container">
+
+        <div class="item"><%= transaction.day %></div>
+        <div class="item"><%= transaction.business['name'] %></div>
+        <div class="item"><%= transaction.supplier %></div>
+        <div class="item"><%= transaction.category['label'] %></div>
+        <div class="item-small">£<%= transaction.price; %></div>
+        <div class="item-small"><form action='/transactions/<%= transaction.id %>/delete' method='post'>
+          <input type="submit" value="Delete" style="float: right;">
+        </form></div>
+
+      </div> 
+    <% end %>
 
 
 
 
-  <p class="total">Total £<%= @analysis.total_transactions(@transactions) %></p>
+    <p class="total">Total £<%= @analysis.total_transactions(@transactions) %></p>
 
-  <form action= "/transactions/download" method="get">
-    <input type="submit" value="Download CSV">
-  </form>
+    <form action= "/transactions/download" method="get">
+      <input type="submit" value="Download CSV">
+    </form>
+</div
 

@@ -58,3 +58,7 @@ get ('/transactions/download') do
   file = @analysis.create_csv()
 end
 
+get ('/transactions/graph') do
+  erb (:'transactions/graph')
+end
+

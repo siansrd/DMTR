@@ -36,9 +36,7 @@ class Analysis
     end
     return "%.2f" % total
   end
-
-
-
+  
 
   def create_csv()
     hashes = Transaction.all_as_hashes
