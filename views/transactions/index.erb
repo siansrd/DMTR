@@ -64,8 +64,19 @@
 
     <p class="total">Total £<%= @analysis.total_transactions(@transactions) %></p>
 
-    <form action= "/transactions/download" method="get">
-      <input type="submit" value="Download CSV">
-    </form>
+    <div class=bottom-buttons>
+      <div class="button-1">
+        <form action= "/transactions/download" method="get">
+          <input type="submit" value="Download CSV">
+        </form>
+      </div>
+
+      <div class="button-2">
+        <form action= "/transactions/graph" method="get">
+          <input type="submit" value="Display Graph">
+        </form>
+      </div>
+
+    </div>
 </div
 

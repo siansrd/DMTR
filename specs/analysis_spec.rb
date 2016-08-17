@@ -14,11 +14,11 @@ class TestAnalysis < Minitest::Test
 
 
   # def test_businesses_names
-  #   assert_equal(["Business", "Web Development", "Design Work", "Teaching"], @analysis.businesses_names)
+  #   assert_equal(["Business", "Web Development", "Teaching"], @analysis.businesses_names)
   # end
 
   # def test_businesses_count
-  #   assert_equal(4, @analysis.business_count)
+  #   assert_equal(3, @analysis.business_count)
   # end
 
   def test_total_transactions

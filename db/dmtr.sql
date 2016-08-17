@@ -15,7 +15,7 @@ CREATE TABLE categories (
 CREATE TABLE transactions (
   id SERIAL8 PRIMARY KEY,
   day DATE,
-  amount DECIMAL(6,2),
+  amount FLOAT,
   supplier VARCHAR(255),
   business_id int4 references businesses(id) ON DELETE CASCADE,
   category_id int4 references categories(id)
