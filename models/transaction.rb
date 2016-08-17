@@ -71,7 +71,7 @@ attr_reader :id, :day, :amount, :supplier, :business_id, :category_id
   end
 
 # Create an array of hashes
-  def self.all_as_array_hashes
+  def self.all_as_hashes
     sql = "SELECT * FROM transactions"
     collection = SqlRunner.run( sql )
     hashes = collection.map do |transaction|
@@ -94,15 +94,6 @@ attr_reader :id, :day, :amount, :supplier, :business_id, :category_id
     }
   end
 
-  # Export database into a csv file
-  # def self.csv
-  #   CSV.generate do |csv|
-  #     csv << ["ID","DATE","AMOUNT", "SUPPLIER", "BUSINESS ID", "CATEGORY ID"]
-  #     sql = "SELECT * FROM transactions;"
-  #     transactions_hashes = SqlRunner.run(sql)
-  #     transactions_hashes.each { |row| csv << row }
-  #   end
-  # end
 
 end
 

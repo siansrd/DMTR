@@ -2,6 +2,7 @@ require_relative('../models/transaction')
 require_relative('../models/business')
 require_relative('../models/category')
 require_relative('../models/analysis')
+require('csv')
 require('pry-byebug')
 
 
@@ -42,6 +43,7 @@ post ('/transactions/:id/delete') do
   redirect( to('/transactions'))
 end
 
+# NOT NEEDED
 # This comes from the analysis model
 # get ('/transactions/:category_id') do
 #   @transaction = Transaction.all
@@ -50,18 +52,10 @@ end
 
 # CSV file download
 get ('/transactions/download') do
-  data = Transaction.all_not_mapped
-  binding.pry
-  nil
-
-      # content_type 'application/csv'
-      # attachment "myfilename.csv"
-      # data.each{|k, v|
-      #    p v
-      # }
-
-
-#   erb(:transactions)
+  content_type 'application/csv'
+  attachment "dmtr.csv"
+  file = @analysis.create_csv()
+  send_file(file, :disposition => 'attachment')
+  erb(:'transactions/index')
 end
-
 

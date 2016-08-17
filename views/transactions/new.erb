@@ -1,30 +1,34 @@
 <!-- We have @businesses and @categories available -->
-
 <form action="/transactions" method="post">
-  <!--  Date -->
-  <input type="date" name="day" value="Date">
-  
-  <!--  Add select for Businesses -->
-  <select name="business_id">
-    <% @businesses.each do |business| %>
-      <option value="<%= business.id %>"><%= business.name %></option>
-    <% end %>
-  </select>
-
-  <!--  Add select for Categories -->
-  <select name="category_id">
-    <% @categories.each do |category| %>
-      <option value="<%= category.id %>"><%= category.label %></option>
-    <% end %>
-  </select>
-
-  <!--  Supplier -->
-  <input type="text" name="supplier" value="Supplier">
-
-  <!--  Amount -->
-  <input type="text" name="amount" value="£">
-
-  <input type="submit" value="Add">
+    <div class="container-form">
+      <div class="item">
+        <input type="date" name="day" value="Date">
+      </div>
+      <div class="item-form">
+        <select name="business_id">
+          <% @businesses.each do |business| %>
+            <option value="<%= business.id %>"><%= business.name %></option>
+          <% end %>
+        </select>
+        <p class="add-link"><a href="/businesses">Add New Business</a>  &rarr;</p>
+      </div>
+      <div class="item-form">
+        <select name="category_id">
+          <% @categories.each do |category| %>
+            <option value="<%= category.id %>"><%= category.label %></option>
+          <% end %>
+        </select>
+      </div>
+      <div class="item-form">
+        <input type="text" name="supplier" value="Supplier">
+      </div>
+      <div class="item">
+        £<input type="text" name="amount">
+      </div>
+      <div class="item-small">
+        <input type="submit" value="Add">
+      </div>
+  </div>
 </form>
 
 
