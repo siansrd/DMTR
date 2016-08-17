@@ -1,4 +1,4 @@
-<!-- Transaction New Form -->
+<!-- New Transaction Form -->
 <header> 
   <%= erb :'transactions/new' %>
 </header>
@@ -8,6 +8,7 @@
 
   <div class="filter-wrapper">
     <div class="category-filter">
+
     <!-- Filter by Category -->
       <form action="/transactions" method="get">
         <select name="category_id">
@@ -16,6 +17,7 @@
           <% end %>
         </select>
     </div>
+
     <!-- Filter by Business -->
     <div class="business-filter">
         <select name="business_id">
@@ -58,9 +60,7 @@
       </div> 
     <% end %>
 
-
-
-
+  <!-- Total Transactions -->
     <p class="total">Total £<%= @analysis.total_transactions(@transactions) %></p>
 
     <div class=bottom-buttons>
@@ -70,6 +70,7 @@
         </form>
       </div>
 
+    <!-- Total Transactions -->
       <div class="button-2">
         <form action= "/transactions/graph" method="get">
           <input type="submit" value="Display Graph">
