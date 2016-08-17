@@ -5,7 +5,7 @@ require_relative('../models/analysis')
 require('csv')
 require('pry-byebug')
 
-
+# Main transactions page.
 get ('/transactions') do
   @businesses = Business.all
   @categories = Category.all
@@ -26,18 +26,21 @@ get ('/transactions') do
   erb(:'transactions/index')
 end
 
+# New transactions form
 get ('/transactions/new') do
   @categories = Category.all
   @businesses = Business.all
   erb(:'transactions/new')
 end
 
+# Submit new transaction
 post ('/transactions') do
   transaction = Transaction.new(params)
   transaction.save()
   redirect(to('/transactions'))
 end
 
+# Delete a transaction
 post ('/transactions/:id/delete') do
   Transaction.destroy( params[:id] )
   redirect( to('/transactions'))
@@ -58,6 +61,7 @@ get ('/transactions/download') do
   file = @analysis.create_csv()
 end
 
+# Graph page
 get ('/transactions/graph') do
   erb (:'transactions/graph')
 end
