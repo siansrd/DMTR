@@ -43,7 +43,7 @@ class Analysis
 
   def create_csv()
     hashes = Transaction.all_as_hashes
-    CSV.open("data.csv") do |csv|
+    CSV.generate do |csv|
       csv << hashes.first.keys # adds the attributes name on the first line
       hashes.each do |hash|
         csv << hash.values

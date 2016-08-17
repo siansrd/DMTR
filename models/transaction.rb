@@ -70,6 +70,14 @@ attr_reader :id, :day, :amount, :supplier, :business_id, :category_id
     return sorted
   end
 
+
+  def self.map_trans(sql)
+    transactions = SqlRunner.run(sql)
+    return transactions.map{ |transaction| 
+      Transaction.new(transaction)
+    }
+  end
+
 # Create an array of hashes
   def self.all_as_hashes
     sql = "SELECT * FROM transactions"
@@ -87,12 +95,6 @@ attr_reader :id, :day, :amount, :supplier, :business_id, :category_id
     return hashes
   end
 
-  def self.map_trans(sql)
-    transactions = SqlRunner.run(sql)
-    return transactions.map{ |transaction| 
-      Transaction.new(transaction)
-    }
-  end
 
 
 end

@@ -52,10 +52,9 @@ end
 
 # CSV file download
 get ('/transactions/download') do
+  @analysis = Analysis.new
   content_type 'application/csv'
   attachment "dmtr.csv"
   file = @analysis.create_csv()
-  send_file(file, :disposition => 'attachment')
-  erb(:'transactions/index')
 end
 
