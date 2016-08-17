@@ -11,13 +11,13 @@ get ('/transactions') do
   @categories = Category.all
   @analysis = Analysis.new
   @transactions = Transaction.all
-  if params[:category_id]
+  if params[:category_id] && !(params[:category_id].to_i == 1)
     #filter @transactions to only those with a category id
     @transactions = @transactions.select do |transaction|
       transaction.category_id == params[:category_id].to_i
     end
   end
-  if params[:business_id]
+  if params[:business_id] && !(params[:business_id].to_i == 2)
     # filter @transactions to only those with a business id
     @transactions = @transactions.select do |transaction|
       transaction.business_id == params[:business_id].to_i

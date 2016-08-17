@@ -14,18 +14,15 @@
           <% @categories.each do |category| %>
             <option value="<%= category.id %>"><%= category.label %></option>
           <% end %>
-          
-        <input type="submit" value="Filter">
-      </form>
+        </select>
     </div>
-
     <!-- Filter by Business -->
     <div class="business-filter">
-      <form action="/transactions" method="get">
         <select name="business_id">
           <% @businesses.each do |business| %>
             <option value="<%= business.id %>"><%= business.name %></option>
           <% end %>
+        </select>
 
         <input type="submit" value="Filter">
       </form>
@@ -34,6 +31,8 @@
     <div class="all-trans">&larr;<a href="/transactions">All Transactions</a></div>
   </div>
 
+  <!-- Display transactions -->
+  <!--   Headings -->
     <div class="container-header">
       <div class="item">Date</div>
       <div class="item">Business</div>
@@ -42,8 +41,8 @@
       <div class="item-small">Price</div>
       <div class="item-small"> </div>
     </div> 
-  <!-- Display transactions -->
-
+  
+  <!-- Content -->
     <% @transactions.each do |transaction| %>
       <div class="container">
 
