@@ -37,18 +37,30 @@ class Analysis
     return "%.2f" % total
   end
   
-
+  # Use the CSV gem to generate and populate a CSV fil
   def create_csv()
     hashes = Transaction.all_as_hashes
     CSV.generate do |csv|
-      csv << hashes.first.keys # adds the attributes name on the first line
+      # Adds the keys as headings on the first line
+      csv << hashes.first.keys
+      # Iterates through the transactions and populates CSV
       hashes.each do |hash|
         csv << hash.values
       end
     end
   end
 
+  def filter_trans_by_category(cat_id)
+      @transactions = @transactions.select do |transaction|
+        transaction.category_id == cat_id.to_i
+      end
+  end
 
+  def filter_trans_by_business(bus_id)
+      @transactions = @transactions.select do |transaction|
+        transaction.business_id == bus_id.to_i
+      end
+  end
 
 end
 

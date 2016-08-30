@@ -11,18 +11,15 @@ get ('/transactions') do
   @categories = Category.all
   @analysis = Analysis.new
   @transactions = Transaction.all
+
   if params[:category_id] && !(params[:category_id].to_i == 1)
-    #filter @transactions to only those with a category id
-    @transactions = @transactions.select do |transaction|
-      transaction.category_id == params[:category_id].to_i
-    end
+    @transactions = @analysis.filter_trans_by_category(params[:category_id])
   end
+  
   if params[:business_id] && !(params[:business_id].to_i == 2)
-    # filter @transactions to only those with a business id
-    @transactions = @transactions.select do |transaction|
-      transaction.business_id == params[:business_id].to_i
-    end
+    @transactions = @analysis.filter_trans_by_business(params[:business_id])
   end
+
   erb(:'transactions/index')
 end
 
