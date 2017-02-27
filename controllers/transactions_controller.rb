@@ -12,11 +12,11 @@ get ('/transactions') do
   @analysis = Analysis.new
   @transactions = Transaction.all
 
-  if params[:category_id] && !(params[:category_id].to_i == 1)
+  if params[:category_id]
     @transactions = @analysis.filter_trans_by_category(params[:category_id])
   end
   
-  if params[:business_id] && !(params[:business_id].to_i == 2)
+  if params[:business_id]
     @transactions = @analysis.filter_trans_by_business(params[:business_id])
   end
 

@@ -13,6 +13,7 @@
     <div class="category-filter">
       <form action="/transactions" method="get">
         <select name="category_id">
+          <option value="<%= 'nil' %>" disabled selected><%= "Category" %></option>
           <% @categories.each do |category| %>
             <option value="<%= category.id %>"><%= category.label %></option>
           <% end %>
@@ -22,6 +23,7 @@
     <!-- Filter by Business -->
     <div class="business-filter">
         <select name="business_id">
+          <option value="<%= 'nil' %>" disabled selected><%= "Business" %></option>
           <% @businesses.each do |business| %>
             <option value="<%= business.id %>"><%= business.name %></option>
           <% end %>

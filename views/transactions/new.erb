@@ -6,6 +6,7 @@
       </div>
       <div class="item-form">
         <select name="business_id">
+          <option value="<%= 'nil' %>" disabled selected><%= "Business" %></option>
           <% @businesses.each do |business| %>
             <option value="<%= business.id %>"><%= business.name %></option>
           <% end %>
