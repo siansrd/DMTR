@@ -108,6 +108,7 @@ input[type="date" i] {
   flex-direction: row;
   padding-bottom: 10px;
   margin-bottom: 10px;
+  margin-top: 50px;
   border-bottom: 2px solid #000;
 }
 
@@ -171,7 +172,16 @@ p.total {
 .all-trans {
   height: 20px;
   padding-top: 18px;
+  width: 120px;
+  display: inline-block;
+  margin-right: 20px;
 }
+
+.all-trans p {
+  font-size: 12px;
+}
+
+
 
 
 .filter-wrapper {
@@ -179,14 +189,15 @@ p.total {
   height: 30px;
 }
 
-.category-filter {
-  float: left;
+.filter {
+  width: 180px;
+  display: inline-block;
   margin-right: 20px;
 }
 
-.business-filter {
-  float: left;
-  margin-right: 20px;
+.filter .filter-btn {
+  width: 80px;
+  display: inline-block;
 }
 
 .button-1 {
